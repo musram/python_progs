@@ -1,0 +1,14 @@
+def qux():
+    print('[mod4] qux()')
+
+class Qux:
+    pass
+
+
+if __name__ == "_main__":
+
+    print(__file__)
+    print("yes")
+    from  ..subpakg1 import mod1
+
+    print(mod1.foo())

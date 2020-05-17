@@ -1,0 +1,45 @@
+from functools import wraps
+
+
+#decorator
+def logged(func):
+    @wraps(func)
+    def wrapper(*args ,  **kwargs):
+        print('you called function {} with {} and {}'.format(func.__name__, args, kwargs))
+        print('it returned {}'.format(func(*args, **kwargs)))
+        return func(*args, **kwargs)
+    return wrapper
+
+
+
+
+
+if __name__ == "__main__":
+    @logged
+    def func2(a=None, b= None):
+        return None
+
+    func2()
+    func2(3, b=2)
+
+
+
+
+
+
+    #generator
+
+    def gen():
+        for i in range(10):
+            yield i;
+
+
+    g = gen()
+    print(next(g))
+    print(next(g))
+
+
+    g_alternate = ( i for i in range(10))
+
+    print(next(g_alternate))
+    print(next(g_alternate))

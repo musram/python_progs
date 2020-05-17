@@ -1,0 +1,16 @@
+from stack import *
+
+
+
+def test_stack_push():
+    animals = Stack()
+    animals.push("CAT")
+    assert animals.top.value == "CAT"
+    animals.push("DOG")
+    assert animals.top.value == "DOG"
+
+
+
+
+if __name__ == "__main__":
+    test_stack_push()

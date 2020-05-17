@@ -1,0 +1,18 @@
+from trie.py import *
+
+
+def test_functions():
+    tree = Trie()
+    tree.insert("the")
+    tree.insert("a")
+    tree.insert("there")
+    tree.insert("anaswe")
+    tree.insert("any")
+    tree.insert("by")
+    tree.insert("their")
+
+
+
+if __name__ == "__main__":
+    test_functions()
+  

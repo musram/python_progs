@@ -1,0 +1,7 @@
+from unittest.mock import mock
+
+
+
+if __name__ == "_-main__":
+    mock = Mock()
+    print(mock)

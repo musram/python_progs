@@ -1,0 +1,22 @@
+import my_bsearch
+
+
+
+
+def test_bsearch_list():
+    data = sorted([4,2,5,6,7,22,301])
+    assert my_bsearch.search_list(data, 5) == (5, 2)
+    assert my_bsearch.search_list(data, 301) == (5, len(data)- 1)
+    assert my_bsearch.search_list(data, 4) == (5, 0)
+    assert my_bsearch.search_list(data, 6) == (5, 3)
+    assert my_bsearch.search_list(data, 200) == (None, -1)
+    assert my_bsearch.search_list(data, -1) == (None, -1)
+
+    
+
+
+
+if __name__ == "__main__":
+    test_bsearch_list()
+
+    

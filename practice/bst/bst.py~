@@ -1,0 +1,45 @@
+class Node(object):
+    def __init__(self, value, left=None,  right=None, parent = None):
+        self.value = value
+        self.left = left
+        self.right = right
+        self.parent = parent
+
+    def __repr__(self):
+       return self.value
+
+
+class bst(object):
+    
+   def __init__(self):
+       self.root = None
+
+   def set(self,  value):
+       if self.root:
+          node = self.root 
+          while node:
+              if node.value == value:
+                 node.value = value
+                 break
+              elif node.left is None and node.right is None:
+                 if node.value > value:
+                     node.left = Node(value, parent=node)
+                 else:
+                     node.right = Node(value, parent=node)
+              elif node.value < value:
+                  if node.right:
+                     node = node.right
+                  else:
+                     node.right = Node(value, parent=node) 
+              elif node.value > value:
+                  if node.left:
+                     node = node.left
+                  else:
+                     node.left = Node(value, parent=node)
+              else:
+                  raise Exception("Should not happen")
+                  
+           
+       else:
+           self.root = Node(value, parent=self.root)
+               

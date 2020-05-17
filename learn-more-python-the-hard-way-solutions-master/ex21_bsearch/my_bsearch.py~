@@ -1,0 +1,24 @@
+import llist
+import bstree
+
+
+
+def _search(data, elem , low, high):
+    if low  >= high:
+        return None, -1
+
+    mid = high - low // 2 + low
+    mid_val = data[mid]
+
+    if elem > mid_val:
+        return _search(data, elem, mid, high)
+    elif elem < mid_val:
+        return _search(data, elem, low, high)
+    elif elem == mid_val:
+        return elem , mid
+
+def search_list(data, elem):
+    return _search(data, elem , 0, len(data))
+
+
+    

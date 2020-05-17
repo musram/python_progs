@@ -1,0 +1,31 @@
+class TrieNode(object):
+    def __init__(self):
+        self.children = [None]*26
+        self.isEndOfWord = False
+
+    def  _repr_(self):
+        return '[' + ','.join(self.children) + ']'
+
+
+class Trie(object):
+    def __init__(self):
+        self.root = self.getNode()
+
+    def getNode():
+        return TrieNode()
+
+    def _charToIndex(self, ch):
+        return ord(ch) - ord('a')
+
+    def insert(self, key):
+        node = self.root
+        for level in range(len(key)):
+            idx = _charToIndex(key[level])
+            if not node.children[idx]:
+                node.children[idx] = self.getnode()
+                node = node.children[idx]
+        node.isEndOfWord = True        
+            
+
+            
+    

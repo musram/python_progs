@@ -1,0 +1,24 @@
+from test_pq import *
+
+
+
+def test_pq_insert():
+    animals = PQ()
+    animals.insert(10,"CAT")
+    assert animals.front.value == "CAT"
+    animals.insert(2,"DOG")
+    assert animals.front.value == "DOG"
+    animals.insert(30,"RAT")
+    return animals
+
+
+def test_pq_delete():
+    animals = test_pq_insert()
+    animals.delete()
+
+
+
+if __name__ == "__main__":
+    test_pq_insert()
+    test_pq_delete()
+    

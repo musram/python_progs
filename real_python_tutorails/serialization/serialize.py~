@@ -1,0 +1,5 @@
+###https://realpython.com/python-pickle-module/
+
+
+#serialization allows you to take a complex object structure and transform it into a stream of bytes that can be saved to a disk or sent over a network. The marshal module, The json module, The pickle module  are modules for serialization.
+

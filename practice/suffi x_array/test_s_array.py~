@@ -1,0 +1,11 @@
+from s_array import *
+
+def test_print():
+    array = SUffixArray("abracadabra")
+    print(array)
+
+
+
+
+if __name__ == "__main__":
+    test_print()

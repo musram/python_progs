@@ -1,0 +1,5 @@
+from pathlib import Path
+P
+if __name__ == "__main__":
+    base_dir = Path("src")
+

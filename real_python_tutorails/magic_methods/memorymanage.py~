@@ -1,0 +1,7 @@
+
+
+
+if __name__ == "__main__":
+    import sys
+    a = "my_string"
+    print(sys.getrefcount(a))

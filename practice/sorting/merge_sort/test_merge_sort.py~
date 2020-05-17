@@ -1,0 +1,5 @@
+from merge_sort import *    
+
+                           
+def test_merge_sort():
+    sortet_list = merge_sort([1,30,4,52,23,634,235,642,23,1])

@@ -1,0 +1,15 @@
+#raise an exception
+
+def func():
+    x = 10
+    if x > 5:
+        raise Excpetion('x should not exceed 5. The value of x was: {}'.format(x))
+
+
+
+
+
+
+
+if __name__ == "__main__":
+    func()

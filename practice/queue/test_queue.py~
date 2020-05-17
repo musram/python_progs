@@ -1,0 +1,19 @@
+from queue import *
+
+
+def test_queue_enque():
+    animals = Queue()
+    animals.enque("CAT")
+    animals.rear.value == "CAT"
+    animals.enque("DOG")
+    animals.rear.value == "DOG"
+    animals.enque("RAT")
+    animals.rear.value == "RAT"
+    return animals
+
+
+
+if __name__ == "__main__" :
+    test_queue_enque()
+    
+    

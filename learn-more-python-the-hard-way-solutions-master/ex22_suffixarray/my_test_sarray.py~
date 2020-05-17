@@ -1,0 +1,18 @@
+from my_sarray import SuffixArray
+
+
+def test_SuffixArray():
+    finder = SuffixArray("abracadabra")
+    print(finder)
+
+    assert finder.search("ra") == (9,9)
+
+
+
+
+
+
+
+
+if __name__ == "__main__":
+    test_SuffixArray()

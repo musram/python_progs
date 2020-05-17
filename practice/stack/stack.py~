@@ -1,0 +1,25 @@
+class StackNode(object):
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+
+    def __repr__(self):
+        return self.value
+
+
+class Stack(object):
+    def __init__(self):
+        self.top = None
+
+    def __repr__(self):
+        node = self.top
+        nodes = []
+        while node:
+            nodes.append(node.value)
+            node = node.next
+
+        return '-->'.join(nodes)
+
+    def push(self, value):
+        pass
+            

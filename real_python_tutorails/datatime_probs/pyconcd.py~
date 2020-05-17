@@ -1,0 +1,11 @@
+
+
+
+
+
+if __name__ == "__main__":
+    from datetime import datetime
+
+    PYCON_DATE = datetime(year=2021, month=5, day=12, hour=8)
+    countdate = PYCON_DATE - datetime.now()
+    print(f'Countdown to pycon 2021: {countdate}')

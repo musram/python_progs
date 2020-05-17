@@ -1,0 +1,22 @@
+class LinkedListNode(object):
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+
+    def __repr__(self):
+        return self.value
+
+
+class LinkdeList(object):
+    def __init__(self):
+        self.begin = None
+
+    def __repr__(self):
+        node = self.begin
+        values = []
+        while node:
+            values.append(model.value)
+            node = node.next
+        return '-->'.join(values)
+
+    

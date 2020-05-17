@@ -1,0 +1,14 @@
+
+
+
+
+
+if __name__ == "__main__":
+    print(globals())
+
+
+    name= "sai"
+    ocupation = "God"
+    print(globals())
+    
+    

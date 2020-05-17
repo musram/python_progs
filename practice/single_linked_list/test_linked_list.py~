@@ -1,0 +1,11 @@
+from linked_list import *
+
+
+
+
+def test_linked_list_insert():
+    animals = LinkedList()
+    animals.add_last("CAT")
+    assert animals.value == "CAT"
+    animals.addLast("DOG")
+    assert animals.next.value == "DOG"

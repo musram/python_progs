@@ -1,0 +1,20 @@
+
+from my_tstree import *
+
+
+def test_TSTree_get_set():
+    urls = TSTree()
+    urls.set("/apple/", "Apple")
+    urls.set("/grape/", "Grape")
+    urls.set("/kiwi/", "Kiwi")
+    urls.set("/kumquat/", "Kumquat")
+    urls.set("/pineapple/", "Pineapple")
+
+    assert urls.get("/apple/") == "Apple"
+    assert urls.get("/grape/") == "Grape"
+    assert urls.get("/kiwi/") == "Kiwi"
+    assert urls.get("/") == None
+
+    return urls
+
+    

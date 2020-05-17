@@ -1,0 +1,9 @@
+#https://florian-dahlitz.de/blog/introduction-to-itertools
+
+
+
+if __ name__ == "__main__":
+    """
+    Infinite iterators produce streams of infinite length (as the name suggests). Accessing them by functions or loops to truncate the streams is strongly recommended. There exist three of them in the itertools module: count(), cycle(), and repeat().
+    """
+    

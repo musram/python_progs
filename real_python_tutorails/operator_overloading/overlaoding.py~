@@ -1,0 +1,26 @@
+
+from math import hypot, atan, sin, cos
+
+class CustomComplex:
+    def __init__(self, real, imag):
+        self.real = real
+        self.imag = imag
+
+
+    def conjugate(self):
+        return self.__class__(self.real, -self.iamg)  #  __class__ is same as CustomerComplex
+
+    def argz(self):
+        return atan(self.imag / self.real)
+
+    def __abs__(self):
+        return hypot(self.real, self.imag)
+
+    def __repr__(self):
+        return 'CustomComplex({}, {})'.format(self.real, self.imag)
+
+    def __str__(self):
+        return '{}{}j'.format(self.real, self.imag)
+
+    
+        

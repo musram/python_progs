@@ -1,0 +1,9 @@
+from dllist import *
+
+class Dictionary(object):
+    def __init__(self, num_buckets):
+        self.map = DoubleLinkedList()
+        for i in range(num_buckets):
+            self.map.push(DoubleLinkedList())
+
+            

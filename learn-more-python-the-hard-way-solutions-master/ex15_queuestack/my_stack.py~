@@ -1,0 +1,22 @@
+class StackNode:
+
+    def __init__(self, value, next):
+        self.value = value
+        self.next = next
+
+    def __repr__(self):
+        nval = self.value and  self.next or None 
+        return '[{}:{}]'.format(self.value, nval)
+
+class Stack:
+
+    def __init__(self):
+        self.top = None
+        
+    def push(self, value):
+        node = StackNode(value, None)
+        if top == None:
+            self.top = node
+        else:
+            self.top.next = node
+            self.top = node

@@ -1,0 +1,11 @@
+from binary_search import *
+
+
+
+def test_binary_search():
+
+    animals = sorted(["CAT", "DOG", "RAT", "BAT", "MONKEY", "DONKEY", "DEER", "BIRDS"])
+
+    print(animals)
+    
+    assert binary_search("SHIT") == -1

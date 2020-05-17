@@ -1,0 +1,30 @@
+"""
+*TL;DR
+Separates presentation, application processing, and data management functions.
+"""
+
+
+class Data:
+    """ Data Store Class """
+
+    products = {
+        'milk': {'price': 1.50, 'quantity': 10},
+        'eggs': {'price': 0.20, 'quantity': 100},
+        'cheese': {'price': 2.00, 'quantity': 10},
+    }
+
+    def __get__(self, obj, klas):
+        print("(Fetching from Data Store)")
+        return {'products': self.products}
+
+class BusinessLogic:
+    """ Business logic holding data store instances """
+
+    data = Data()
+
+    def product_list(self):
+        return self.data['products'].keys()
+
+    def product_information(self, product):
+        return self.data['products'].get(product, None)
+    

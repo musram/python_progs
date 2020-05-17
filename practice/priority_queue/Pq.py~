@@ -1,0 +1,11 @@
+from pq import *
+
+
+
+def test_pq_insert():
+    animals = PQ()
+    animals.insert("CAT")
+    assert animals.head.value == "CAT"
+    animals.insert("DOG")
+    assert animals.head.value == "DOG"
+    

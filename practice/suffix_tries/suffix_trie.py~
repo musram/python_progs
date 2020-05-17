@@ -1,0 +1,16 @@
+from trie import *
+
+
+
+class SuffixTrie(Trie):
+    def __init__(self):
+        super().__init__()
+
+    def isSubstring(self, key):
+        node = self.root
+        for level in range(len(key)):
+            idx =self. _charToIndex(key[level])
+            if not  node.children[idx]:
+                return False
+            node = node.children[idx]
+       if node is not None or node.isEndOfWord

@@ -1,0 +1,9 @@
+def grep(substr):
+    while True:
+        line = yield
+        if substr in line:
+            print("found {}".format(substr)
+
+
+
+            

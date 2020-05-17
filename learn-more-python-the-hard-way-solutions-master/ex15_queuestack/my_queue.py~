@@ -1,0 +1,11 @@
+class QueueNode(object):
+
+    def __init__(self, value, nxt, prv):
+        self.value = value
+        self.next = nxt
+        self.prev = prv
+
+    def __repr__(self):
+        nval = self.next and self.next.value or None
+        pval = self.prev and self.prev.value or None
+        return '[{}:next={}:prev={}]'.format(self.value, repr(nval), repr(pval))

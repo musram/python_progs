@@ -1,0 +1,8 @@
+class ternary_search(object):
+
+    def __init__(self, list1):
+        self.list1 = list1
+
+    def search(self, l, r,  key):
+        pass
+   

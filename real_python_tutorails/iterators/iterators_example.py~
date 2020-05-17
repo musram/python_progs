@@ -1,0 +1,9 @@
+
+
+
+
+If __name__ == "__main__":
+
+    names = ['sai', 'asi', 'isa']
+    for name in names:
+        print(name)

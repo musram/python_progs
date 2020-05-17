@@ -1,0 +1,24 @@
+class Holding:
+    def __init__(self, name, date, shares, price):
+        self.name = name
+        self.date = date
+        self.shares = shares
+        self.price = price
+
+    def cost(self):
+        return self.shares * self.price
+
+    def sell(self, nshares):
+        self.shares -= nshares
+
+
+
+if __name__ == "__main__":
+    h = Holding('AA', '2006-13-12', 100, 34.3)
+
+    #get method
+    print(h.name)
+
+    #set method
+    h.shares = 200
+    print(h.shares)
