@@ -165,6 +165,8 @@ if __name__ == "__main__":
 
     print(p)
 
+
+
     print(hasattr(p, '__get__'))
 
     print(p.__get__(h))

@@ -1,0 +1,19 @@
+class Solution:
+    
+    def findAnagrams(self, s: str, p: str) -> List[int]:
+        
+        A = [0]*26
+        B = [0]*26
+        
+        from collections import Counter
+        c = dict(Counter(p))
+        for key, val in c.items():
+            idx = ord(key) - ord('a')
+            A[idx] = val
+        print(A)    
+
+
+if __name__ == "__main__":
+    s = Solution()
+    s.findAnagrams("abab", "ab")
+   

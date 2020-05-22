@@ -157,7 +157,10 @@ if __name__ == "__main__":
     #(4)
     print(h.__getattribute__('name'))
 
-    #The (4) method 
+    #The (4) method
+
+    print(type(h))
+    print(type(h).__dict__)
 
 
     try:

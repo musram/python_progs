@@ -1,0 +1,12 @@
+from collections import defaultdict, namedtuple, Counter, deque
+import csv
+import random
+from urllib.request import urlretrieve
+
+
+
+
+if __name__ == "__main__":
+    user = ('bob'. 'code')
+
+    print(f'{user[0]} is a {user[1]}')

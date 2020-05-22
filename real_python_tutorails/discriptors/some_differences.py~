@@ -1,0 +1,19 @@
+#The difference between getattr, __get__, __getattr__, and __getattribute__ in Python
+
+
+
+class Foo:
+
+    def __init__(self, name):
+        self.name = name
+
+
+
+
+
+
+if __name__ == "__main__":
+
+    f = Foo("sai")
+
+    print(f.name)

@@ -1,0 +1,14 @@
+class Borg:
+    _namespace = {}
+
+    def __init__(self):
+        self.__dict__ = _namespace
+
+
+
+if __name__ == "__main__":
+
+    a = Borg()
+    b = Borg()
+
+    print(a._namespace)

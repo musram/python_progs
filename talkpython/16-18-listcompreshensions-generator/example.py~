@@ -1,0 +1,81 @@
+from collections import Counter
+import calendar
+import itertools
+import random
+import re
+import string
+import requests
+
+
+if __name__ == "__main__":
+    names = 'pybites mike bob julian tim sara guido'.split()
+    print(names)
+
+
+    #p = re.compile(r'[A-M]')
+
+    #p.find(names)
+
+    #print(p)
+
+
+
+    resp = requests.get('http://projects.bobbelderbos.com/pcc/harry.txt')
+    words=  resp.text.lower().split()
+    print(words[:5])
+    print( '-' in words)
+    
+
+    #remove the '-'
+
+
+
+    #remove the stop words
+
+    resp  =  requests.get('http://projects.bobbelderbos.com/pcc/stopwords.txt')
+    stop_words = resp.text.lower().split()
+
+    words = [ word for word in words if word.strip() and word not in stop_words]
+
+
+    print( 'the' in words)
+
+    cnt = Counter(words)
+    print(cnt.most_common(5))
+
+
+    # convert to title
+    NAMES = ['arnold schwarzenegger', 'alec baldwin', 'bob belderbos',
+         'julian sequeira', 'sandra bullock', 'keanu reeves',
+         'julbob pybites', 'bob belderbos', 'julian sequeira',
+         'al pacino', 'brad pitt', 'matt damon', 'brad pitt']
+
+    names = [ name.title() for name in NAMES]
+
+    print( names[:5])
+
+    #reverse the name
+
+    def reverse_name(names):
+        for name in names:
+            first, second = name.split()
+            yield 'second, firstxs'
+
+    reverse_name_list = [names for name in reverse_name(NAMES)]
+    print(reverse_name_list)
+    
+    
+    
+    
+    
+
+    #generator
+    options = 'red yellow blue white black green purple'.split()
+    def create_select_options(options=options):
+        for option in options:
+            yield '<option value={}>{}</option>'.format(option, option.title())
+    
+    print(create_select_options())
+
+    for elem in create_select_options(options):
+        print(elem)

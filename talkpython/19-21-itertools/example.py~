@@ -1,0 +1,9 @@
+from itertools import cycle
+
+
+
+if __name__ == "__main__":
+    traffic_lights = ['RED', 'GREEN', 'AMBER']
+    for light in cycle(traffic_lights):
+        print(light)
+    
