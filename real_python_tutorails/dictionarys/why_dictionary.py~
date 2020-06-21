@@ -1,0 +1,11 @@
+
+def bit(a):
+    print(bin(a))
+
+
+if __name__ == "__main__":
+    """
+    (1) A dictionary is really a list.
+
+    (2) Keys are hashed to produce indexes.
+

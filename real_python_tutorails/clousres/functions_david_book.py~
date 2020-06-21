@@ -1,0 +1,85 @@
+from urllib.request import urlopen
+class UrlTemplate:
+    def __init__(self, template):
+        self.template = template
+    def open(self, **kwargs):
+        return urlopen(self.template.format_map(kwargs))
+
+#class to function
+
+def UrlTemplate(template):
+    def opener(**kwargs):
+        return urlopen(self.template.format_map(kwargs))
+    return opener
+
+
+if __name__ == "__main__":
+    
+
+
+    #storing states
+
+    #in class
+
+    class ResultHandler:
+        def __init__(self):
+            self.sequence = 0
+
+        def handler(self, result):
+            self.sequence += 1
+            print(f"{self.sequence} Got {result}")
+
+    
+
+    #in function
+
+    def ResultHandler():
+        sequence = 0
+
+        def handler(result):
+            nonlocal sequence
+            sequence += 1
+
+            print(f"{self.sequence} Got {result}")
+
+        return handler
+
+    #using coroutines
+
+    def ResultHandler():
+        sequence = 0
+        while True:
+            result = yield
+
+            sequence += 1
+            print(f"{self.sequence} Got {result}")
+
+
+    def apply_async(func, args, *, callback):
+        # Compute the result
+        result = func(*args)
+        # Invoke the callback with the result
+        callback(result)
+
+    def print_result(result):
+        print('Got:', result)
+
+    def add(x, y):
+        return x + y
+        
+    #h = ResultHandler()
+    #apply_async(add, (2,3), callback=h.send)
+    
+    #using partials
+
+    class SequenceNo:
+        def __init__(self):
+            self.sequence = 0
+
+    def handler(result, seq):
+        seq.sequence += 1
+        print(f"{seq.sequence} Got {result}")
+
+    seq = SequenceNo()
+    from functools import partial
+    apply_async(add, (2, 3), callback=partial(handler, seq=seq))

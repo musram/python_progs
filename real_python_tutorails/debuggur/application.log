@@ -1,0 +1,16 @@
+[07:51:50] {example3.py:17} ERROR - Some serious error occurred.
+[07:51:50] {example3.py:18} WARNING - Function you are using is deprecated.
+[07:52:19] {example3.py:17} ERROR - Some serious error occurred.
+[07:52:19] {example3.py:18} WARNING - Function you are using is deprecated.
+[08:11:32] {example3.py:17} ERROR - Some serious error occurred.
+[08:11:32] {example3.py:18} WARNING - Function you are using is deprecated.
+[08:12:52] {example3.py:17} ERROR - Some serious error occurred.
+[08:12:52] {example3.py:18} WARNING - Function you are using is deprecated.
+[18:49:16] {example3.py:17} ERROR - Some serious error occurred.
+[18:49:16] {example3.py:18} WARNING - Function you are using is deprecated.
+[18:56:55] {example3.py:17} ERROR - Some serious error occurred.
+[18:56:55] {example3.py:18} WARNING - Function you are using is deprecated.
+[18:59:56] {example3.py:17} ERROR - Some serious error occurred.
+[18:59:56] {example3.py:18} WARNING - Function you are using is deprecated.
+[19:01:26] {example3.py:17} ERROR - Some serious error occurred.
+[19:01:26] {example3.py:18} WARNING - Function you are using is deprecated.

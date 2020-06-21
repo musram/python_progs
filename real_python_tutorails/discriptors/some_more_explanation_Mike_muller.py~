@@ -1,0 +1,53 @@
+class DataDescripter:
+    def __init__(self):
+        self.value = 0
+
+    def __get__(self, instance, type=None):
+        print(f'data descripter __get__')
+        return self.value
+
+    def __set__(self, instance, value):
+        print(f'data descripter __set__')
+        self.value = value
+
+    def __delete__(self, instance):
+        print('f dont delete')
+
+
+
+class A:
+    attr = DataDescripter()
+
+
+if __name__ == "__main__":
+    a = A()
+    print(a.attr)
+
+    #accessing value
+    
+    #this is same as
+    print(type(a).__dict__['attr'].__get__(a, type(a)))
+
+    print(A.attr)
+
+    #this is same as
+    print(A.__dict__['attr'].__get__(None, A))
+
+    print(A.__dict__)
+
+
+    #setting value
+
+    a.attr = 10
+    print(a.attr)
+
+
+    A.attr = 100
+    print(a.attr)
+    print(A.attr)
+
+    print(a.__dict__)
+    print(A.__dict__)
+    
+
+    

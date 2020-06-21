@@ -1,11 +1,11 @@
 #simple decorator
 
-def my_decorator(func):
-    def wrapper():
+def my_decorator(func):              #executed once when we decorate a function
+    def wrapper():                   #executes each time decorated function runs
             print("something is happening before the function is called")
             func()
             print("something is happening after the function is called")
-    return wrapper
+    return wrapper                   #executed once when we decorate a function
 
 def say_whee():
     print("Wee!")
@@ -214,17 +214,17 @@ def greet(name):
 
 #decorators with arguments
 
-def repeat(num_times):
-    def decorator_repeat(func):
+def repeat(num_times):                               #executed once when we get an argument
+    def decorator_repeat(func):                      #executed once when we decorate a function
         @functools.wraps(func)
-        def wrapper_decorator_repeat(*args, **kwargs):
+        def wrapper_decorator_repeat(*args, **kwargs):    #excutes each time function in run
             for _ in range(num_times):
                 value = func(*args, **kwargs)
             return value
-        return wrapper_decorator_repeat
-    return decorator_repeat
+        return wrapper_decorator_repeat             #executed once when we decorate a function
+    return decorator_repeat                         #executed once when we get an argument
 
-@repeat(num_times=4)
+@repeat(num_times=4) 
 def greet(name):
     print("Hello {}".format(name))
 
@@ -296,6 +296,29 @@ class CountCalls:
 def say_whee():
     print("Whee!")
 
+
+#decorating a class
+
+def fancy_ref(self):
+    return f"Hi all"
+
+def object_birthday(c):            #executed once when we decorate a class c      
+    c.__repr__ = fancy_ref
+
+    def wrapper(*args, **kwargs):     #excutes each time instance of a class is created
+        o = c(*args, **kwargs)
+        o._created_at = time.time()
+        return o
+    return wrapper                #executed once when we decorate a class c
+
+
+@object_birthday
+class Goo:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+        
+        
 
 
 #decorating a class
@@ -442,6 +465,15 @@ if __name__ == "__main__":
     say_whee()
 
     #say_whee.num_calls
+
+
+    #decorating a class
+
+    f = Goo(10, 20)
+    print(f)
+    print(f._created_at)
+
+    
 
     #decorating a class
 

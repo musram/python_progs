@@ -1,0 +1,36 @@
+#https://realpython.com/creating-modifying-pdf/#extracting-text-from-a-pdf
+
+
+from PyPDF2 import PdfFileReader
+from pathlib import Path
+import os
+
+
+if __name__ == "__main__":
+    print(Path().absolute())
+
+    ENCRYPTED_FILE_PATH = (Path().absolute()
+                /"Pride.pdf")
+    FILE_OUT_PATH = (Path().absolute()/"executive_order_out.pdf")
+
+    pdf_reader = PdfFileReader(str(ENCRYPTED_FILE_PATH))
+    output_file_path = Path().absolute()/"Pride.txt"
+
+    with output_file_path.open("w") as output_file: 
+        if pdf_reader.isEncrypted:
+            try:
+                pdf_reader.decrypt(PASSWORD)
+            except NotImplementedError:
+                command=f"qpdf --password='{PASSWORD}' --decrypt {ENCRYPTED_FILE_PATH} {FILE_OUT_PATH};"
+16              os.system(command) 
+                with open(FILE_OUT_PATH, 'r') as fp:
+                     reader_ = PdfFileReader(fp)
+                     title = reader.documentInfo.title
+                     num_pages = reader.getNumPages()
+                     output_file.write(f"{tile}\\ Number of pages: {num_pages}\\\n")
+
+                for page in pdf_reader.pages:
+                    text = page.extractText()
+                    output_faile.write(text)
+
+

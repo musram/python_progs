@@ -30,7 +30,7 @@ class child3(Parent):
 class child4(Parent):
     def __init__(self, value, extra):
         self.extra = extra
-        super().__init__(value)
+        super().__init__(value)  or Parent.__init__(value)
 
 #inheritace 5
 
@@ -75,6 +75,24 @@ class F(A,C,D):
 class E(D,C,A):
     pass
 
+class G(B, A, D):
+    pass
+
+
+#What about diamond ?
+
+class P:
+    def foo(self):
+        print('P')
+class Q(P):
+    def foo(self):
+        super().foo()
+class R(P):
+    def foo(self):
+        print('R')
+class S(Q, R):
+    pass
+
 
 
 #abstract class
@@ -105,14 +123,17 @@ if __name__ == "__main__":
     a = A()
     print(A.__mro__)   #prints hierarchy of inhertince
 
+    
+
 
     #When inheritace there are two  rules
     #(1) for single inheritance the parent class has to be checked before the child. SO thats happend in B.__mro__
+    #when  b = B() and b.foo() is called, foo is searched in __mro__ order. i.e B,  A , object.
 
-
+    a.spam()
     print(B.__mro__)
 
-    #(2) for multiple inheritace, the order of inheritance is the order in which multiple class is defined.
+    #(2) for multiple inheritace, the order of inheritance is the order in which multiple class is defined. But this fails in diamond case.
 
     f = F()
     f.spam()
@@ -123,10 +144,25 @@ if __name__ == "__main__":
     e.spam()
     print(E.__mro__)
 
+    print(E.__bases__)
+
     try:
         p = Point(2,3)
     except TypeError as e:
         print(e)
-    
 
+    g = G()
+    g.spam()
+
+    print(G.__bases__)
+    print(G.__mro__)
+
+
+    #Diamond example
+    
+    Q().foo()
+    S().foo()
+    print(S.__mro__)
+
+    
 

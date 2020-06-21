@@ -1,0 +1,25 @@
+#https://dev.to/ezzy1337/a-pythonic-guide-to-solid-design-principles-4c8i
+
+
+#the class to modify
+
+class FTPClient:
+  def __init__(self, **kwargs):
+    self._ftp_client = FTPDriver(kwargs['host'], kwargs['port'])
+    self._sftp_client = SFTPDriver(kwargs['sftp_host'], kwargs['user'], kwargs['pw'])
+
+  def upload(self, file:bytes, **kwargs):
+    is_sftp = kwargs['sftp']
+    if is_sftp:
+      with self._sftp_client.Connection() as sftp:
+        sftp.put(file)
+    else:
+      self._ftp_client.upload(file)
+
+  def download(self, target:str, **kwargs) -> bytes:
+    is_sftp = kwargs['sftp']
+    if is_sftp:
+      with self._sftp_client.Connection() as sftp:
+        return sftp.get(target)
+    else:
+      return self._ftp_client.download(target)

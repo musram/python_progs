@@ -1,0 +1,22 @@
+"""
+without descripters
+
+(1) _getattribute__  if this generates AttributeError then goto (5)
+(2) instance value
+(3) Class defination
+(4) Superclass recursively
+(5) __getattr__
+(6) AttributeError
+
+
+with descripters
+
+(1) _getattribute__  if this generates AttributeError then goto (5)
+(2) instance value
+(3) Class defination       if there is descripters in class  with __get__ then                           return that.
+(4) Superclass recursively if there is descripters in superclass  with __get__ then                           return that.
+(5) __getattr__
+(6) AttributeError
+
+
+"""

@@ -38,6 +38,29 @@ class MyDate(Date):
         print('yow')
 
 
+"""
+DIff between __init__ vs __new__.
+__init__ is used to initialize the instance.self
+   - sets up field
+   - nonstatic
+__new__ is used to create that instance in first place
+   - static
+   - takes in cls instead of self
+   - if superclasses __new__ is called then __init__ will also be called.
+"""
+
+class Test:
+    def __new__ (cls, x):
+        print(f'__new__.cls={cls}')
+        return super().__new__(cls)
+    def __init__(self, x):
+        print(f'__init__.self={self}')
+        self.x  = x
+
+        
+    
+
+
 
 if __name__ == "__main__":
     h = Holding('AA', '2006-13-12', 100, 34.3)
@@ -93,3 +116,20 @@ if __name__ == "__main__":
     g = MyDate.today()
     print(g.month)
     g.yow()
+
+
+    t = Test(3)
+
+    #every thing is object
+
+    print(type(1))
+    print(type(1).mro())
+    print(type("hi").mro())
+    print(type([]).mro())
+    print(type(print).mro())
+    
+    
+
+    
+
+    

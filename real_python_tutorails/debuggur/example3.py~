@@ -1,0 +1,31 @@
+#https://martinheinz.dev/blog/24
+
+import logging
+
+if __name__ == "__main__":
+    
+    logging.basicConfig(
+        filename='application.log',
+        level=logging.WARNING,
+        format= '[%(asctime)s] {%(pathname)s:%(lineno)d} %(levelname)s - %(message)s',
+        datefmt='%H:%M:%S'
+    )
+
+
+
+
+    logging.error("Some serious error occurred.")
+    logging.warning('Function you are using is deprecated.')
+
+
+    import yaml
+    from logging import config
+
+    with open("config.yaml", 'rt') as f:
+        config_data = yaml.safe_load(f.read())
+        config.dictConfig(config_data)
+
+
+    logger =  logging.getLogger(__name__)
+
+    logger.debug('This is a debug messge')

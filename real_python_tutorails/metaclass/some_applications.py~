@@ -1,0 +1,14 @@
+
+class MyMeta(type):
+    def __new__(cls, name, base, namespace):
+        return super().__new__(cls, name, base, namespace)
+
+class MyClass(MyMeta):
+    x  = 3
+
+
+
+
+if __name__ == "__main__":
+    my_class = MyClass()
+    print(my_class.__dict__)

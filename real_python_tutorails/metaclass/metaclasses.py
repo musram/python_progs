@@ -1,3 +1,14 @@
+#https://realpython.com/python-metaclasses/
+
+"""
+type   ---- inherits ---> object   <----inherits ----   class B     <-----  inherits ----  class C(B)
+
+object ---- instance --->  type   <---- instance ---- class B 
+
+                           type   <---- instance ---- class C(B) 
+"""  
+
+
 
 class Foo:
     pass
@@ -92,7 +103,27 @@ Calling type() in this manner creates a new instance of the type metaclass. In o
 
     p = point(2,3)
     print(type(p))
+    print(isinstance(p, point))
+    print(isinstance(1, point))
+    print(p.__dict__)
+    p.z = 3
+    print(p.__dict__)
+    point.a = 'a'
+    print(point.__dict__)
     print(p.x)
+
+
+    #namespace
+
+    #(1) instance p.x
+    #(2) type/class point.a
+    #(3) inherited class/types
+
+    #so when we do p.x it is searched in (1) , (2) and (3) in that order.
+
+
+
+    
 
 
     #example 1
@@ -128,6 +159,20 @@ Calling type() in this manner creates a new instance of the type metaclass. In o
     
     print(x.attr)
     print(x.attr_val())
+
+    try:
+        print(Foo.attr_val())      
+    except TypeError as e:
+        print(e)
+    finally:
+        print(Foo.attr_val(Foo))    #Need to pass the Foo as an object when Class.method.
+
+    f = Foo()
+    print(f.attr_val())            #instance.method passes the instance as first parameter.
+
+    f.attr = 200
+    print(f.attr_val())
+    
 
     #example 4
 

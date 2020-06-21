@@ -41,7 +41,7 @@ It turns out that while the one parameter of float() is called x, youre not allo
 
    """
    By adding / after x, you specify that x is a positional-only argument. You can combine regular arguments with positional-only ones by placing the regular arguments after the slash
-   """
+x   """
 
    """
    In greet(), the slash is placed between name and greeting. This means that name is a positional-only argument, while greeting is a regular argument that can be passed either by position or by keyword.
@@ -75,6 +75,25 @@ It turns out that while the one parameter of float() is called x, youre not allo
 
 
    print(to_fahrenheit(celsius=40))
+
+
+   def print_greeting(name, *, use_colors=False):
+      return f"{name} coloures {use_colors}"
+
+   print(print_greeting(name="sai"))
+
+   print(print_greeting(name="sai", use_colors=True))
+
+   try:
+      print(print_greeting("sai", True))
+   except TypeError as e:
+      print(e)
+
+   try:
+      print(print_greeting(use_colors=True))
+   except TypeError as e:
+      print(e)
+   
 
    """
    You can combine positional-only, regular, and keyword-only arguments by specifying them in this order separated by / and *. In the following example, text is a positional-only argument, border is a regular argument with a default value, and width is a keyword-only argument with a default value:

@@ -1,4 +1,4 @@
-#The difference between getattr, __get__, __getattr__, and __getattribute__ in Python
+#The difference between getattr, __get__, __getattr__, __getattribute__  and __getitem__in Python
 
 
 
@@ -21,6 +21,20 @@ class Drob(object):
     def __getattribute__(self, name):
         print( f'getting {name}')
         return object.__getattribute__(self, name)
+
+
+class Krob:
+    def __init__(self):
+        self.x = 10
+    def __getattr__(self,name):
+        print(f"__getattr__ called")
+        return name
+    def __getattribute__(self, name):
+        print(f"__getattribute__ called")
+        if name == 'bar':
+            raise AttributeError
+        return 'getattribute'
+    
        
 
 class Descriptor(object):
@@ -40,6 +54,13 @@ class Descriptor(object):
 
 class Stu(object):
     age = Descriptor()
+
+
+class MyColors:
+    def __init__(self):
+        self._colors = {'yellow': 1, 'red': 2, 'blue': 3}
+    def __getitem__(self, name):
+        return self._colors.get(name, 100)
 
 
 
@@ -83,6 +104,16 @@ if __name__ == "__main__":
     print(d.bamf)
 
 
+    #diff between __getattr__ and __getattribute__
+
+    k =  Krob()
+    print(k.x)    #calls __getattribute__
+    print(k.baz)  # calls __getattribute__
+    print(k.bar)  # calls __getattribute__ but raising  AttributeError calls __getattr__
+    
+    
+
+
     #__get__
 
     
@@ -91,3 +122,33 @@ if __name__ == "__main__":
     print(stu.age)
 
     print(stu.__dict__)
+
+
+
+
+    #__getitem__
+    #Are methods that can be defined to implement container objects.
+
+
+    colors = MyColors()
+    print(colors['yellow'])
+    print(colors['brown'])
+
+
+
+
+
+    """
+
+    getattr, setattr
+
+    __getattr__, __getattribute__, __setattr__, __delattr__
+
+    __get__, __set__, __del__
+
+    __getitem__ , __setitem__, __delitem__
+
+   """
+
+
+    

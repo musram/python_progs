@@ -1,0 +1,22 @@
+
+
+
+
+#to read a large csv file
+
+
+def csv_reader(file_name):
+    for row in open(file_name, 'r'):
+        yield row
+
+
+if __name__ == "__main__":
+
+    #1 generator
+
+    csv_reader("hate_crimes.csv")
+
+
+    #2 genertor
+
+    

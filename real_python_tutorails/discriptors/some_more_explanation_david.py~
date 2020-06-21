@@ -1,0 +1,76 @@
+
+
+
+
+class Descriptors:
+    def __init__(self, name):
+        self.name = name
+
+    def __get__(self, instance, type:None):
+        return instance.__dict__[self.name]
+
+    def __set__(self, instance, value):
+        instance.__dict__[self.name] = value
+
+
+    def __delete__(self, instance):
+        del instance.__dict[self.name]
+
+
+class Stock:
+    _fields = ['name', 'shares', 'price']
+
+    name = Descriptors('name')
+    shares = Descriptors('shares')
+    price = Descriptors('price')
+
+    def __init__(self, name, shares, price):
+        self.name = name
+        self.shares = shares
+        self.price = price
+
+
+
+class Type(Descriptors):
+    ty = object
+    def __set__(self, instance, value):
+        if not isinstance(instance, self.ty):
+            raise TypeError(f"Expected {self.ty}")
+        super().__set__(instance, value)
+
+class Integer(Type):
+    ty = int
+
+class Float(Type):
+    ty = float
+
+class String(Type):
+    ty = str
+
+
+class Stock1:
+    _fields = ['name', 'shares', 'price']
+
+    name = String('name')
+    shares = Integer('shares')
+    price = Float('price')
+
+    def __init__(self, name, shares, price):
+        self.name = name
+        self.shares = shares
+        self.price = price
+
+
+ 
+    
+
+
+
+
+if __name__ == "__main__":
+    s = Stock1("ACME", 100, 32.0)
+    print(s.shares)
+    s.shares = 200
+    print(s.shares)
+    print(s.__dict__)
+        

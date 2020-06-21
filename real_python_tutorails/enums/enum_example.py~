@@ -1,0 +1,21 @@
+"""
+enum stands for enumeration and refers to a set of symbolic names, which are called enumeration members. These enum members are bound to unique, constant values. You can iterate over an enumeration and compare its members by identity
+"""
+
+import enum
+
+class Colour(enum.Enum):
+    RED=1
+    GREEN=2
+    BLUE=3
+
+
+
+if __name__ == "__main__":
+    c = Colour.RED
+
+    print(c)
+    print(c.name)
+    print(c.value)
+    print(c is Colour.RED)
+    print(c is Colour.GREEN)

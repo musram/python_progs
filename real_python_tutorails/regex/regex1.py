@@ -508,9 +508,6 @@ if __name__ == "__main__":
 
 
 
-
-
-
     #re.DEBUG Displays debugging information.
 
 
@@ -520,19 +517,4 @@ if __name__ == "__main__":
     #Combining <flags> Arguments in a Function Call
 
     #re.search('^bar', 'FOO\nBAR\nBAZ', re.I | re.M)
-
-    
-
-    
-
-    
-    
-
-    
-        
-
-
           
-    
-
-    
